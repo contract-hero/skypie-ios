@@ -1,0 +1,15 @@
+{
+  "name": "skypie-ios",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -C core/ui dev",
+    "build": "pnpm -C core/ui build",
+    "test": "pnpm -C core/ui test",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

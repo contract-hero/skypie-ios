@@ -1,0 +1,32 @@
+[package]
+name = "skypie-ios"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+
+[lib]
+name = "skypie_ios"
+path = "src/lib.rs"
+# `staticlib` is what the generated Xcode project links.
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[dependencies]
+tauri = { version = "2", features = ["macos-private-api"] }
+# `generate_context!` expands to code that names `serde_json` at the call site.
+serde_json = "1"
+skypie-app = { path = "../core/app" }
+
+# Every Tauri plugin the app library registers must ALSO be a direct
+# dependency here: `tauri-build` discovers a plugin's permission files through
+# the `DEP_*_PERMISSION_FILES_PATH` metadata cargo only exposes to direct
+# dependents, and the capabilities in ./capabilities reference them.
+tauri-plugin-deep-link = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-skypie-iap = { path = "../core/crates/tauri-plugin-skypie-iap" }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[features]
+e2e-hooks = ["skypie-app/e2e-hooks"]

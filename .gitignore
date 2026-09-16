@@ -1,0 +1,16 @@
+node_modules/
+target/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+.pnpm-store/
+.vscode/
+.idea/
+src-tauri/target/
+# Generated iOS project, except the XcodeGen spec (source of truth).
+src-tauri/gen/*
+!src-tauri/gen/apple/
+src-tauri/gen/apple/*
+!src-tauri/gen/apple/project.yml

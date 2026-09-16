@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  iOS additions merged into gen/apple/src_tauri_iOS/Info.plist by the
+	  Tauri CLI (`Info.plist` + `Info.ios.plist` next to tauri.conf.json).
+
+	  Do NOT declare CFBundleURLTypes here. The deep-link plugin's build
+	  script rewrites that key on every iOS build from `deep-link.mobile` in
+	  tauri.conf.json — it inserts the key when that list has entries and
+	  REMOVES it when the list is empty. It never merges, so a block written
+	  here is overwritten either way. Declaring the scheme here and leaving
+	  `deep-link.mobile` empty is what shipped an IPA that registered no
+	  skypie:// handler at all, while the stale simulator bundle kept working.
+	  The scheme lives in tauri.conf.json under BOTH `deep-link.desktop`
+	  (LaunchServices, macOS) and `deep-link.mobile` (CFBundleURLTypes, iOS).
+	-->
+	<!--
+	  Beam and Scope dial peers directly over QUIC. On a LAN that is a local
+	  network connection, which iOS 14+ gates behind a user prompt; without
+	  this string the prompt cannot be shown and the connection is refused.
+	-->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Sky Pie connects directly to your paired Macs to receive artifacts.</string>
+	<!--
+	  RevenueCat's PUBLIC SDK key (the `appl_…` one). Read by the IAP plugin
+	  at launch; see crates/tauri-plugin-skypie-iap.
+
+	  Injected from the environment by scripts/inject-revenuecat-key.sh rather
+	  than committed: a key in the repository is a key in every fork, and
+	  rotating it would mean shipping a new binary to change a string. An
+	  absent or uninterpolated value is NOT a crash — the app opens, reading
+	  works, and the paywall reports the store as unavailable. Losing the
+	  whole app to a build-config mistake would be far worse than losing the
+	  purchase screen.
+
+	  This is the public key, which is designed to ship inside a client. The
+	  SECRET key must never appear here or anywhere in this repository.
+	-->
+	<key>RevenueCatAPIKey</key>
+	<string>$(REVENUECAT_API_KEY)</string>
+</dict>
+</plist>

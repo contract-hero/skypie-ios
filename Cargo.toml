@@ -1,0 +1,6 @@
+[workspace]
+members = ["src-tauri"]
+# The core submodule is its own Cargo workspace; the app crate is reached
+# through a path dependency, not as a member.
+exclude = ["core"]
+resolver = "2"
