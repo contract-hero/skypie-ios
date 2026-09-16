@@ -23,7 +23,6 @@ skypie-app = { path = "../core/app" }
 tauri-plugin-deep-link = "2"
 tauri-plugin-dialog = "2"
 tauri-plugin-opener = "2"
-tauri-plugin-skypie-iap = { path = "../core/crates/tauri-plugin-skypie-iap" }
 
 [build-dependencies]
 tauri-build = { version = "2", features = [] }

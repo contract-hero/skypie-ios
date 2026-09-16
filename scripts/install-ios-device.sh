@@ -79,8 +79,6 @@ else
 fi
 echo "==> Device: ${DEVICE_NAME:-unknown} ($DEVICE)"
 
-./scripts/inject-revenuecat-key.sh
-
 # A left-over .app makes the CLI's move out of the archive fail with
 # "Directory not empty" AFTER xcodebuild already said BUILD SUCCEEDED.
 rm -rf src-tauri/gen/apple/build/skypie-ios_iOS.xcarchive \

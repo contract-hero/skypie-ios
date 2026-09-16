@@ -47,9 +47,6 @@ export PATH="$SHIM_DIR:$PATH"
 
 rm -rf "$APPLE_DIR/build/skypie-ios_iOS.xcarchive" "$APPLE_DIR/build/arm64-sim"
 
-# The RevenueCat public key lives in the environment, not in the repository.
-# A no-op without one: the build still produces a working reader.
-"$REPO_ROOT/scripts/inject-revenuecat-key.sh"
 
 cd "$REPO_ROOT"
 pnpm tauri ios build --debug --target aarch64-sim "$@"

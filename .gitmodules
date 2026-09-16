@@ -1,5 +1,5 @@
 [submodule "core"]
 	path = core
-	url = git@github.com:alilloig/skypie-core.git
+	url = git@github.com:contract-hero/skypie-core.git
 	branch = main
 	update = merge

@@ -5588,7 +5588,6 @@ dependencies = [
  "tauri-plugin-dialog",
  "tauri-plugin-drag",
  "tauri-plugin-opener",
- "tauri-plugin-skypie-iap",
  "tauri-plugin-window-state",
  "thiserror 1.0.69",
  "tokio",
@@ -5606,7 +5605,6 @@ dependencies = [
  "tauri-plugin-deep-link",
  "tauri-plugin-dialog",
  "tauri-plugin-opener",
- "tauri-plugin-skypie-iap",
 ]
 
 [[package]]
@@ -6226,17 +6224,6 @@ dependencies = [
  "url",
  "windows 0.61.3",
  "zbus",
-]
-
-[[package]]
-name = "tauri-plugin-skypie-iap"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
- "tauri",
- "tauri-plugin",
- "thiserror 1.0.69",
 ]
 
 [[package]]
